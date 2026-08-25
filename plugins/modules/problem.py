@@ -126,6 +126,9 @@ options:
     type: str
     default: /api/x_rhtpp_ansible/problem
     version_added: 2.0.0
+notes:
+  - This module operates on the ServiceNow C(problem) table, which the C(itil) role can
+    access by default.
 """
 
 EXAMPLES = r"""

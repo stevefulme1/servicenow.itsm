@@ -132,6 +132,9 @@ options:
       - For more information on optional parameters, refer to the ServiceNow
         catalog request documentation.
     type: dict
+notes:
+  - This module operates on the ServiceNow C(sc_request) table. Access is granted by the
+    C(itil) role or the lower-privilege C(sn_request_write)/C(sn_request_read) roles.
 """
 
 EXAMPLES = r"""

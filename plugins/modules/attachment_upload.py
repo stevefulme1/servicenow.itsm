@@ -40,6 +40,9 @@ options:
     required: true
 notes:
   - Supports check_mode.
+  - This module writes to the ServiceNow C(sys_attachment) table. The
+    authenticating account needs write access to the parent record's table
+    (I(table_name)); attachments inherit the parent record's permissions.
 """
 
 EXAMPLES = r"""

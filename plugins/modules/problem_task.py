@@ -106,6 +106,9 @@ options:
         create problem task documentation at
         U(https://docs.servicenow.com/bundle/tokyo-it-service-management/page/product/problem-management/task/create-problem-task.html).
     type: dict
+notes:
+  - This module operates on the ServiceNow C(problem_task) table, which the C(itil) role
+    can access by default.
 """
 
 EXAMPLES = r"""

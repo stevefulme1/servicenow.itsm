@@ -31,6 +31,9 @@ extends_documentation_fragment:
   - servicenow.itsm.sysparm_display_value
 seealso:
   - module: servicenow.itsm.change_request_task
+notes:
+  - This module reads the ServiceNow C(change_task) table, which the C(itil) role can
+    access by default.
 """
 
 EXAMPLES = r"""

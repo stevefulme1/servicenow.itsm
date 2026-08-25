@@ -62,6 +62,9 @@ options:
     elements: str
     required: false
     version_added: 2.4.0
+notes:
+  - This module reads the ServiceNow C(cmdb_ci) table and its subclasses, which the
+    C(itil) role can access by default.
 """
 
 EXAMPLES = r"""

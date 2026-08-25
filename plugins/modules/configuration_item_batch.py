@@ -58,6 +58,9 @@ options:
       - Data is returned as string because ServiceNow API expect this
     required: true
     type: dict
+notes:
+  - This module operates on the ServiceNow C(cmdb_ci) table and its subclasses. Creating
+    or updating configuration items requires the C(itil) or C(asset) role.
 """
 
 EXAMPLES = r"""

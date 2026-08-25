@@ -96,6 +96,9 @@ options:
         create incident documentation at
         U(https://docs.servicenow.com/bundle/tokyo-it-service-management/page/product/incident-management/task/create-an-incident.html).
     type: dict
+notes:
+  - This module operates on the ServiceNow C(incident) table, which the C(itil) role can
+    access by default.
 """
 
 EXAMPLES = r"""

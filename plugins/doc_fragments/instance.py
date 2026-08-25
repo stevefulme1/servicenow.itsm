@@ -138,4 +138,13 @@ notes:
     U(https://www.servicenow.com/docs/r/platform-user-interface/t_EnableTinyURLSupport.html)."
   - If TinyURL support is not enabled and a query exceeds the URL length limit,
     the request will fail.
+  - "Permissions: the authenticating account must have a ServiceNow role that
+    grants access to the table(s) this module operates on. On a stock instance
+    the C(itil) role covers the common ITSM tables. If the platform REST API ACL
+    has been activated, the account additionally needs the
+    C(snc_platform_rest_api_access) role. Because access is ultimately governed
+    by per-instance ACLs, these out-of-the-box roles are guidance and not a
+    guarantee. See
+    U(https://github.com/ansible-collections/servicenow.itsm/blob/main/docs/servicenow_permissions.md)
+    for the full role matrix."
 """

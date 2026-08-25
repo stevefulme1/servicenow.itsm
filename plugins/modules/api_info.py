@@ -88,6 +88,9 @@ options:
       - Default is set to C(false).
     type: bool
     default: False
+notes:
+  - This module can query any ServiceNow table via the REST Table API, so the required
+    role depends on the table specified in I(resource).
 """
 
 EXAMPLES = """

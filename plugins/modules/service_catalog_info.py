@@ -28,6 +28,9 @@ notes:
     pointer bug in a SNOW owned script included by the catalog, UIPolicyBuilder. If you need to
     gather full information about all catalogs in your instance, you should consider contacting
     SNOW support to discuss the best way to proceed in your environment.
+  - This module uses the ServiceNow Service Catalog API (C(/api/sn_sc/servicecatalog)).
+    Access depends on whether the authenticating account can see the relevant
+    catalog items rather than on a dedicated table role.
 
 version_added: 2.6.0
 

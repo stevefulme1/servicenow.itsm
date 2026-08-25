@@ -75,6 +75,9 @@ options:
         type: str
         required: true
     required: true
+notes:
+  - This module manages CI relationships in the ServiceNow C(cmdb_rel_ci) table. Writing
+    requires the C(itil) or C(asset) role.
 """
 
 EXAMPLES = r"""

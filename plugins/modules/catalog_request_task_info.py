@@ -26,6 +26,9 @@ extends_documentation_fragment:
 seealso:
   - module: servicenow.itsm.catalog_request
   - module: servicenow.itsm.catalog_request_task
+notes:
+  - This module reads the ServiceNow C(sc_task) table. Access is granted by the C(itil)
+    role or the lower-privilege C(sn_request_read) role.
 """
 
 EXAMPLES = r"""

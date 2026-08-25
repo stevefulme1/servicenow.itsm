@@ -62,6 +62,10 @@ options:
         description:
           - Name-value pairs of all mandatory cart item variables.
         type: dict
+notes:
+  - This module uses the ServiceNow Service Catalog API (C(/api/sn_sc/servicecatalog)).
+    Access depends on whether the authenticating account can see and order the relevant
+    catalog items rather than on a dedicated table role.
 """
 
 EXAMPLES = r"""

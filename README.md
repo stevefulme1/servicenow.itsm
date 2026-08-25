@@ -11,6 +11,19 @@ This collection is ideal for IT administrators, DevOps engineers, and automation
 - No additional Python libraries or external Ansible collections are required.
 - A ServiceNow instance and user credentials are required for module authentication.
 
+## ServiceNow permissions
+
+The account used to authenticate must be granted enough access on the ServiceNow
+side for the tables each module operates on. On a stock instance the `itil` role
+covers the common ITSM tables (incidents, problems, changes and their tasks),
+while configuration item modules require `itil` or `asset`. Because ServiceNow
+access is ultimately governed by per-instance ACLs, these out-of-the-box roles
+are guidance rather than a guarantee.
+
+See [ServiceNow permissions required by this collection](https://github.com/ansible-collections/servicenow.itsm/blob/main/docs/servicenow_permissions.md)
+for the full role matrix and setup recommendations. The required roles are also
+noted in each module's documentation.
+
 ## Installation
 
 Install the collection from Ansible Galaxy using:

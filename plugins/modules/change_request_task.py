@@ -137,6 +137,9 @@ options:
         change task documentation at
         U(https://docs.servicenow.com/bundle/tokyo-it-service-management/page/product/change-management/task/create-a-change-task.html).
     type: dict
+notes:
+  - This module operates on the ServiceNow C(change_task) table, which the C(itil) role
+    can access by default.
 """
 
 EXAMPLES = """

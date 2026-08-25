@@ -40,6 +40,9 @@ options:
 
 notes:
   - Supports check_mode.
+  - This module reads from the ServiceNow C(sys_attachment) table. The
+    authenticating account needs read access to the parent record's table;
+    attachments inherit the parent record's permissions.
 """
 
 EXAMPLES = """

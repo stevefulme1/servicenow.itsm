@@ -36,6 +36,9 @@ options:
 seealso:
   - module: servicenow.itsm.configuration_item_relations
 
+notes:
+  - This module reads CI relationships from the ServiceNow C(cmdb_rel_ci) table, which
+    the C(itil) role can access by default.
 """
 
 EXAMPLES = r"""

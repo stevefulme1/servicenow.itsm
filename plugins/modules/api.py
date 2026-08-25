@@ -80,6 +80,9 @@ options:
         you have specified relative path to the file.
       - Template file needs to be present on the Ansible Controller's system. Otherwise, an error is raised.
     type: str
+notes:
+  - This module can target any ServiceNow table via the REST Table API, so the required
+    role depends on the table specified in I(resource).
 """
 
 

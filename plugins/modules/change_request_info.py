@@ -33,6 +33,9 @@ extends_documentation_fragment:
   - servicenow.itsm.sysparm_display_value
 seealso:
   - module: servicenow.itsm.change_request
+notes:
+  - This module reads the ServiceNow C(change_request) table, which the C(itil) role can
+    access by default.
 """
 
 EXAMPLES = r"""

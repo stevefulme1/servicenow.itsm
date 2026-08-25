@@ -134,6 +134,10 @@ options:
       - For the attributes of configuration items specific to I(sys_class_name),
         please consult the relevant ServiceNow documentation.
     type: dict
+notes:
+  - This module operates on the ServiceNow C(cmdb_ci) table and its subclasses.
+    Creating, updating or deleting configuration items requires the C(itil) or C(asset)
+    role.
 """
 
 EXAMPLES = r"""

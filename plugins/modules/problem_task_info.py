@@ -32,6 +32,9 @@ seealso:
   - module: servicenow.itsm.problem_task
   - module: servicenow.itsm.problem
   - module: servicenow.itsm.problem_info
+notes:
+  - This module reads the ServiceNow C(problem_task) table, which the C(itil) role can
+    access by default.
 """
 
 EXAMPLES = r"""

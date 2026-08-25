@@ -141,6 +141,10 @@ options:
       - For more information on optional parameters, refer to the ServiceNow
         catalog request task documentation.
     type: dict
+notes:
+  - This module operates on the ServiceNow C(sc_task) table, which the C(itil) role can
+    access by default. C(sc_task) inherits field-level ACLs from the parent C(task)
+    table.
 """
 
 EXAMPLES = r"""
