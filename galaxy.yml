@@ -3,10 +3,7 @@ name: itsm
 version: 2.16.0
 readme: README.md
 authors:
-  - Cosmin Tupangiu <ctupangi@redhat.com>
-  - Martin Jackson <mhjacks@redhat.com>
-  - Abhijeet Kasurde <akasurde@redhat.com>
-  - XLAB Steampunk <steampunk@xlab.si>
+  - Ansible Eco Content Team (github.com/eco-ansible-content)
 description: Ansible Collection for interacting with ServiceNow ITSM
 license_file: LICENSE
 tags:
@@ -17,15 +14,28 @@ repository: https://github.com/ansible-collections/servicenow.itsm
 homepage: https://github.com/ansible-collections/servicenow.itsm
 issues: https://github.com/ansible-collections/servicenow.itsm/issues
 build_ignore:
-  - .ansible
-  - .claude
-  - .cursor
+  # general
+  - changelogs/.plugin-cache.yaml
+  - .pytest_cache
   - .gitignore
   - .vscode
-  - changelogs/.plugin-cache.yaml
+  - sonar-project.properties
+  - .ansible
+  - .github
+  - CODEOWNERS
+  - CONTRIBUTING.md
+
+  # AI
+  - .claude
+  - .cursor
+  - .lola
+  - .lola-req
+  - AGENTS.md
+  - coderabbit.yml
+  - .agents
+
+  # project specific
+  - scripts
   - tests/integration/targets/*/test_session
   - tests/integration/targets/*/roles
   - tests/integration/integration_config.yml
-  - .pytest_cache
-  - .lola
-  - .ansible-lint
