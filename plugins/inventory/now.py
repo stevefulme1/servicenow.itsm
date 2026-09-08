@@ -186,12 +186,18 @@ options:
       - The data type of a field determines what operators are available for it.
         Refer to the ServiceNow Available Filters Queries documentation at
         U(https://docs.servicenow.com/bundle/tokyo-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).
+      - Each field name can appear only once per list entry. To apply multiple conditions
+        to the same field (AND logic), use C(sysparm_query) with ServiceNow encoded query
+        syntax instead. Separate list entries under C(query) produce OR conditions.
       - Mutually exclusive with C(sysparm_query).
     type: list
     elements: dict
   sysparm_query:
     description:
       - An encoded query string used to filter the results as an alternative to C(query).
+      - Supports the full ServiceNow encoded query syntax including multiple conditions on
+        the same field (AND with C(^)), OR conditions (C(^OR) or C(^NQ)), and all operators
+        listed in the ServiceNow documentation.
       - Refer to the ServiceNow Available Filters Queries documentation at
         U(https://docs.servicenow.com/bundle/tokyo-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).
       - If not set, the value of the C(SN_SYSPARM_QUERY) environment, if specified.
@@ -283,6 +289,33 @@ keyed_groups:
 #  |  |--FileServerFloor2
 #  |  |--INSIGHT-NY-03
 #  |--@ungrouped:
+
+# Use sysparm_query for multiple AND conditions on the same field.
+# The query option only allows each field name once per entry (YAML drops duplicate keys).
+# sysparm_query uses ServiceNow encoded query syntax where ^ separates AND conditions.
+---
+plugin: servicenow.itsm.now
+table: cmdb_ci_server
+sysparm_query: "nameSTARTSWITHDatabase^nameENDSWITH1"
+columns:
+  - name
+  - ip_address
+
+# `ansible-inventory -i inventory.now.yaml --graph` output:
+# @all:
+#  |--@ungrouped:
+#  |  |--DatabaseServer1
+
+
+# WARNING: duplicate keys in the same query entry do NOT work as expected.
+# YAML silently keeps only the last value, so only ENDSWITH is applied here:
+#
+# query:
+#   - name: STARTSWITH Database
+#     name: ENDSWITH 1          # <-- this overwrites the line above
+#
+# Use sysparm_query instead for same-field AND conditions (see example above).
+
 
 # Group hosts into named according to the specified criteria. Here, we created a group
 # of non-Windows production servers.
