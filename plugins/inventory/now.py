@@ -307,15 +307,10 @@ table: cmdb_ci_server
 query:
   - os: = Linux Red Hat   # match Linux Red Hat hosts
   - os: = Windows XP      # OR match Windows XP hosts
-
-# This approach is WRONG and will be neither AND nor OR. It will only maintain the last
-# instance of the duplicated key (`name` in this example)
----
-plugin: servicenow.itsm.now
-table: cmdb_ci_server
-query:
-  - name: STARTSWITH Database
-    name: ENDSWITH 1
+  # The following is WRONG and will be neither AND nor OR. It will only maintain the last
+  # instance of the duplicated key (`name` in this example)
+  # - name: STARTSWITH Database
+  #   name: ENDSWITH 1
 
 # Group hosts into named according to the specified criteria. Here, we created a group
 # of non-Windows production servers.
