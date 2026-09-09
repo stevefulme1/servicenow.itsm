@@ -291,7 +291,6 @@ keyed_groups:
 #  |--@ungrouped:
 
 # Use sysparm_query for multiple AND conditions on the same field.
-# The query option only allows each field name once per entry (YAML drops duplicate keys).
 # sysparm_query uses ServiceNow encoded query syntax where ^ separates AND conditions.
 ---
 plugin: servicenow.itsm.now
@@ -301,21 +300,22 @@ columns:
   - name
   - ip_address
 
-# `ansible-inventory -i inventory.now.yaml --graph` output:
-# @all:
-#  |--@ungrouped:
-#  |  |--DatabaseServer1
+# the query param can do OR conditions, but cannot do AND
+---
+plugin: servicenow.itsm.now
+table: cmdb_ci_server
+query:
+  - os: = Linux Red Hat   # match Linux Red Hat hosts
+  - os: = Windows XP      # OR match Windows XP hosts
 
-
-# WARNING: duplicate keys in the same query entry do NOT work as expected.
-# YAML silently keeps only the last value, so only ENDSWITH is applied here:
-#
-# query:
-#   - name: STARTSWITH Database
-#     name: ENDSWITH 1          # <-- this overwrites the line above
-#
-# Use sysparm_query instead for same-field AND conditions (see example above).
-
+# This approach is WRONG and will be neither AND nor OR. It will only maintain the last
+# instance of the duplicated key (`name` in this example)
+---
+plugin: servicenow.itsm.now
+table: cmdb_ci_server
+query:
+  - name: STARTSWITH Database
+    name: ENDSWITH 1
 
 # Group hosts into named according to the specified criteria. Here, we created a group
 # of non-Windows production servers.
